@@ -11,5 +11,5 @@ export function Card({ movie }) {
     alt="icon-play"/></a>
     </div>`;
 
-  return card
-};
+  return card;
+}
