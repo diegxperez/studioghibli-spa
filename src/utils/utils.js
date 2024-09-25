@@ -1,13 +1,16 @@
 // Utility
 export const $ = (el) => document.querySelector(el);
 
+// Import
+import { Card } from "../assets/components/Card.js";
+
 // Navigation
 export function navigateTo(url) {
   window.history.pushState(null, null, url);
 
   switch (window.location.pathname) {
     case "/":
-      // root.innerHTML = UI;
+      root.innerHTML = moviesUI;
       break;
     case "/characters":
       // root.innerHTML = UI;
@@ -18,4 +21,18 @@ export function navigateTo(url) {
   }
 }
 
-//
+// Load movies
+const URL_MOVIES = "https://ghibliapi.vercel.app/films";
+
+export function loadMovies() {
+  const wrapperCard = $("#wrapper-cards");
+
+  fetch(URL_MOVIES)
+    .then((response) => response.json())
+    .then((movies) =>
+      movies.forEach((movie) => {
+        const cardMovie = Card({ movie });
+        wrapperCard.append(cardMovie);
+      }),
+    )
+};
