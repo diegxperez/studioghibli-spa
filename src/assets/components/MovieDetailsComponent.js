@@ -39,7 +39,7 @@ export function MovieDetailsComponent({ movie }) {
 
             <div class="flex gap-x-1 items-center">
               <img class="size-4 leading-none" src="/src/assets/img/clock_color.svg" alt="icon clock">
-              <p class="text-lg text-graysoft font-geistMono">${movie.running_time}</p>
+              <p class="text-lg text-graysoft font-geistMono">${movie.running_time} Min</p>
             </div>
 
             <div class="flex gap-x-2 items-center">
