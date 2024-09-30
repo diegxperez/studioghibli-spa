@@ -75,4 +75,4 @@ export function MovieDetailsComponent({ movie }) {
         </div>
       </div>
     </div>`;
-}
+};

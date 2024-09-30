@@ -1,9 +1,6 @@
 // import { Card } from "./src/assets/components/Card.js";
-import { $, $$, popState } from "./src/utils/utils.js";
+import { $, $$ } from "./src/utils/utils.js";
 import { showMoviesPage } from "./src/assets/views/movies.js";
-// import { popState } from "./src/utils/utils.js";
-
-const root = $("#root");
 
 showMoviesPage();
 

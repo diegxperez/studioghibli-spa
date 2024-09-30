@@ -1,7 +1,7 @@
 // Utility
 export const $ = (el) => document.querySelector(el);
 export const $$ = (el) => document.querySelectorAll(el);
-
+export const root = $('root');
 // Import UI
 // import { moviesUI } from "../assets/views/movies.js";
 import { charactersUI } from "../assets/views/characters.js";
@@ -56,7 +56,6 @@ export function popState() {
     }
   });
 };
-
 // Load movies
 export function loadMovies() {
   const URL_MOVIES = "https://ghibliapi.vercel.app/films";

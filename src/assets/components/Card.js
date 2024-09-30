@@ -1,6 +1,6 @@
-import { MovieDetailsComponent } from "./MovieDetailsComponent.js";
-import { MovieDetailsView } from "../views/movieDetailsView.js";
-import { showMoviesPage } from "../views/movies.js";
+// import { MovieDetailsComponent } from "./MovieDetailsComponent.js";
+// import { showMoviesPage } from "../views/movies.js";
+import { showMovieDetails } from "../views/movieDetails.js";
 import { $ } from "../../utils/utils.js";
 
 export function Card({ movie }) {
@@ -25,19 +25,8 @@ function hidrateCardsMovie(card, movie) {
     e.preventDefault();
 
     const movieId = e.currentTarget.getAttribute('href');
-    window.history.pushState(null, null, movieId);
+    showMovieDetails({ movie });
     document.title += ` - ${movie.title}`;
-
-    $('#root').innerHTML = MovieDetailsView;
-    $('#btn-back').addEventListener('click', () => {
-      history.back();
-      document.title = 'Studio Ghibli API';
-      showMoviesPage();
-    });
-
-    let movieDetails = document.createElement('div');
-    movieDetails.innerHTML = MovieDetailsComponent({ movie });
-
-    $('#root').append(movieDetails);
+    window.history.pushState({ data: movie }, null, movieId);
   })
 }
