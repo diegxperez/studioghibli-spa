@@ -768,6 +768,11 @@ body {
   border-style: none;
 }
 
+.bg-\[\#edf9a4\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 249 164 / var(--tw-bg-opacity));
+}
+
 .bg-brandprimary {
   --tw-bg-opacity: 1;
   background-color: rgb(221 249 239 / var(--tw-bg-opacity));
@@ -776,11 +781,6 @@ body {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#edf9a4\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(237 249 164 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {

@@ -9,7 +9,7 @@ export function Card(movie) {
     <p class="font-medium text-lg leading-none truncate ...">${movie.title}</p>
     <p class="font-light text-base leading-none">${movie.release_date} — ${movie.running_time} Min</p>
     <a class="font-light text-base leading-none px-2.5 py-1.5 bg-brandprimary size-fit flex gap-x-1 cursor-pointer hover:bg-[#B0FFE3] transition-all ease-in duration-150 rounded-lg items-center" href='/movie/${movie.id}'>More info <img class="size-4" 
-    src="./src/assets/img/play.svg"
+    src="/src/assets/img/play.svg"
     alt="icon-play"/></a>
  </div>`;
 
