@@ -7,3 +7,13 @@
     @apply font-dotGothic;
   }
 }
+
+@layer utilities {
+  .select_btn {
+    @apply bg-[#edf9a4];
+  }
+
+  .star_btn {
+    @apply fill-[#b548dd];
+  }
+}

@@ -768,11 +768,6 @@ body {
   border-style: none;
 }
 
-.bg-\[\#edf9a4\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(237 249 164 / var(--tw-bg-opacity));
-}
-
 .bg-brandprimary {
   --tw-bg-opacity: 1;
   background-color: rgb(221 249 239 / var(--tw-bg-opacity));
@@ -799,10 +794,6 @@ body {
 
 .fill-\[\#232323\] {
   fill: #232323;
-}
-
-.fill-\[\#b548dd\] {
-  fill: #b548dd;
 }
 
 .p-2 {
@@ -915,6 +906,15 @@ body {
 
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.select_btn {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 249 164 / var(--tw-bg-opacity));
+}
+
+.star_btn {
+  fill: #b548dd;
 }
 
 .hover\:gap-x-3:hover {

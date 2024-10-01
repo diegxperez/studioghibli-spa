@@ -1,5 +1,6 @@
 import { $ } from "../../utils/utils.js";
 import { MovieDetailsComponent } from "../components/MovieDetailsComponent.js";
+import { showConfetti } from "../../utils/realistic-confetti.js";
 
 export function showMovieDetails(movie) {
   const root = $('#root');
@@ -69,24 +70,24 @@ function saveMovie(movie) {
   const starBtnMovie = $('#button-favorite-star');
   let movies = localStorage.getItem('movies') ? JSON.parse(localStorage.getItem('movies')) : [];
   let indexMovie = movies.findIndex((movie_localStorage) => movie_localStorage.id == movie.id);
-  if (indexMovie == 0 || indexMovie > 0) {
-    verifyBtnFavorite(btnMovie, starBtnMovie);
+  if (indexMovie >= 0) {
+    toogleBtnFavorite(btnMovie, starBtnMovie);
   }
 
   btnMovie.addEventListener('click', function () {
     let movies = localStorage.getItem('movies') ? JSON.parse(localStorage.getItem('movies')) : [];
     let indexMovie = movies.findIndex((movie_localStorage) => movie_localStorage.id == movie.id);
-    if (indexMovie == 0 || indexMovie > 0) {
+
+    if (indexMovie >= 0) {
       movies.splice(indexMovie, 1)
-      localStorage.setItem('movies', JSON.stringify(movies));
       toogleBtnFavorite(btnMovie, starBtnMovie);
 
     } else {
-      movies.push(movie);
-      localStorage.setItem('movies', JSON.stringify(movies));
       toogleBtnFavorite(btnMovie, starBtnMovie);
-
+      showConfetti();
+      movies.push(movie);
     }
+    localStorage.setItem('movies', JSON.stringify(movies));
   })
 }
 
@@ -96,22 +97,8 @@ function hidrateMovieDetails(movie) {
   saveMovie(movie);
 }
 
-function verifyBtnFavorite(btn, star) {
-  console.log(btn, star);
-  btn.classList.add('bg-[#edf9a4]')
-  star.classList.add('fill-[#b548dd]');
-}
-
 function toogleBtnFavorite(btn, star) {
   console.log(btn, star);
-  btn.classList.toggle('bg-[#edf9a4]');
-  star.classList.toggle('fill-[#b548dd]');
+  btn.classList.toggle('select_btn');
+  star.classList.toggle('star_btn');
 }
-
-// function showConfetti (){
-//   confetti({
-//     particleCount: 100,
-//     spread: 70,
-//     origin: { y: 0.6 }
-//   });
-// }
