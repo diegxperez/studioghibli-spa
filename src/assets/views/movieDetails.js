@@ -69,23 +69,24 @@ function saveMovie(movie) {
   const starBtnMovie = $('#button-favorite-star');
   let movies = localStorage.getItem('movies') ? JSON.parse(localStorage.getItem('movies')) : [];
   let indexMovie = movies.findIndex((movie_localStorage) => movie_localStorage.id == movie.id);
-  if (indexMovie >= 0) {
-    toogleBtnFavorite(btnMovie, starBtnMovie);
+  if (indexMovie == 0 || indexMovie > 0) {
+    verifyBtnFavorite(btnMovie, starBtnMovie);
   }
 
   btnMovie.addEventListener('click', function () {
     let movies = localStorage.getItem('movies') ? JSON.parse(localStorage.getItem('movies')) : [];
     let indexMovie = movies.findIndex((movie_localStorage) => movie_localStorage.id == movie.id);
-
-    if (indexMovie >= 0) {
+    if (indexMovie == 0 || indexMovie > 0) {
       movies.splice(indexMovie, 1)
+      localStorage.setItem('movies', JSON.stringify(movies));
       toogleBtnFavorite(btnMovie, starBtnMovie);
+
     } else {
       movies.push(movie);
+      localStorage.setItem('movies', JSON.stringify(movies));
       toogleBtnFavorite(btnMovie, starBtnMovie);
-    }
 
-    localStorage.setItem('movies', JSON.stringify(movies));
+    }
   })
 }
 
