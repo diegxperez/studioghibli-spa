@@ -18,4 +18,6 @@ $$('a').forEach((el) => el.addEventListener('click', function (e) {
   }
 }))
 
-// popState();
+// TODO: Hidratar el boton y insertar confetti
+// TODO: Hacer el localStorage, guardar en favoritos
+// TODO: Hacer un popstate + pushState state

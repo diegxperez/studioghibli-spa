@@ -1,7 +1,4 @@
-// import { MovieDetailsComponent } from "./MovieDetailsComponent.js";
-// import { showMoviesPage } from "../views/movies.js";
 import { showMovieDetails } from "../views/movieDetails.js";
-import { $ } from "../../utils/utils.js";
 
 export function Card({ movie }) {
 
@@ -21,12 +18,12 @@ export function Card({ movie }) {
 };
 
 function hidrateCardsMovie(card, movie) {
-  card.addEventListener('click', (e) => {
+  card.querySelector('a').addEventListener('click', (e) => {
     e.preventDefault();
 
     const movieId = e.currentTarget.getAttribute('href');
     showMovieDetails({ movie });
     document.title += ` - ${movie.title}`;
-    window.history.pushState({ data: movie }, null, movieId);
+    window.history.pushState({ data: movie }, null, `/movie/${movie.id}`);
   })
 }

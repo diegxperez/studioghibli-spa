@@ -1,5 +1,5 @@
 export function MovieDetailsComponent({ movie }) {
-  return ` <div>
+  return `<div>
       <div class="ml-8 flex gap-x-24 items-center mb-8">
         <div class="w-[318px] relative">
           <img class="w-full rounded-lg" src="${movie.image}" alt="imagen-movie">
@@ -64,14 +64,14 @@ export function MovieDetailsComponent({ movie }) {
       </div>
 
       <div class="mb-6">
-        <h4 class="text-4xl mb-4">Locations</h4>
-        <div id="movie-locations" class="grid grid-cols-4 gap-y-4 ml-8">
+        <h4 class="text-4xl mb-4">Characters</h4>
+        <div id="movie-characters" class="grid grid-cols-4 gap-y-4 ml-8">
         </div>
       </div>
 
       <div>
-        <h4 class="text-4xl mb-4">Characters</h4>
-        <div id="movie-characters" class="grid grid-cols-4 gap-y-4 ml-8">
+        <h4 class="text-4xl mb-4">Locations</h4>
+        <div id="movie-locations" class="grid grid-cols-4 gap-y-4 ml-8">
         </div>
       </div>
     </div>`;
