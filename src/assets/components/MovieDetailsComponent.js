@@ -1,11 +1,11 @@
-export function MovieDetailsComponent({ movie }) {
+export function MovieDetailsComponent(movie) {
   return `<div>
       <div class="ml-8 flex gap-x-24 items-center mb-8">
         <div class="w-[318px] relative">
           <img class="w-full rounded-lg" src="${movie.image}" alt="imagen-movie">
-          <button id="movie-favorite"
+          <button id="button-favorite"
             class="group absolute bottom-2 right-2 border-none cursor-pointer bg-white hover:bg-[#edf9a4] rounded-full p-2 transition-all ease-in duration-150">
-            <svg class="fill-[#232323] group-hover:fill-[#b548dd] size-8 transition-all ease-in duration-150"
+            <svg id="button-favorite-star" class="fill-[#232323] group-hover:fill-[#b548dd] size-8 transition-all ease-in duration-150"
               version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.000000 128.000000"
               preserveAspectRatio="xMidYMid meet">
               <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)" fill="fillCurrent" stroke="none">

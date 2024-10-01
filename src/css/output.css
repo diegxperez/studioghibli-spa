@@ -778,6 +778,11 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#edf9a4\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 249 164 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -794,6 +799,10 @@ body {
 
 .fill-\[\#232323\] {
   fill: #232323;
+}
+
+.fill-\[\#b548dd\] {
+  fill: #b548dd;
 }
 
 .p-2 {

@@ -1,6 +1,6 @@
 import { showMovieDetails } from "../views/movieDetails.js";
 
-export function Card({ movie }) {
+export function Card(movie) {
 
   const card = document.createElement("div");
   card.className = "font-geistMono w-full flex flex-col gap-y-1";
@@ -22,7 +22,7 @@ function hidrateCardsMovie(card, movie) {
     e.preventDefault();
 
     const movieId = e.currentTarget.getAttribute('href');
-    showMovieDetails({ movie });
+    showMovieDetails(movie);
     document.title += ` - ${movie.title}`;
     window.history.pushState({ data: movie }, null, `/movie/${movie.id}`);
   })

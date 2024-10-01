@@ -1,7 +1,7 @@
 import { $ } from "../../utils/utils.js";
 import { MovieDetailsComponent } from "../components/MovieDetailsComponent.js";
 
-export function showMovieDetails({ movie }) {
+export function showMovieDetails(movie) {
   const root = $('#root');
   root.innerHTML = `<div id='btn-back' class="flex items-center mb-8 gap-x-2 pointer">
   <img class="rotate-180 size-12" src="/src/assets/img/arrow-right.svg" alt="arrow right">
@@ -10,15 +10,12 @@ export function showMovieDetails({ movie }) {
 
   let movieDetails = document.createElement('div');
   root.append(movieDetails);
-  movieDetails.innerHTML = MovieDetailsComponent({ movie });
+  movieDetails.innerHTML = MovieDetailsComponent(movie);
 
-  getCharacters({ movie })
-  getLocations({ movie });
-
+  hidrateMovieDetails(movie);
 };
 
-// movie-locations movie-characters
-function getLocations({ movie }) {
+function getLocations(movie) {
   const locationsDiv = $('#movie-locations');
   let urlMovie = `https://ghibliapi.vercel.app/films/${movie.id}`
 
@@ -42,7 +39,7 @@ function getLocations({ movie }) {
 
 };
 
-function getCharacters({ movie }) {
+function getCharacters(movie) {
   const charactersDiv = $('#movie-characters');
   const linkDefault = "https://ghibliapi.vercel.app/people/";
 
@@ -67,6 +64,44 @@ function getCharacters({ movie }) {
   });
 }
 
-// function hidrateMovieDetails (){
-//     // console.log(window.history.state.data);
-// }
+function saveMovie(movie) {
+  const btnMovie = $('#button-favorite');
+  const starBtnMovie = $('#button-favorite-star');
+  let movies = localStorage.getItem('movies') ? JSON.parse(localStorage.getItem('movies')) : [];
+  let indexMovie = movies.findIndex((movie_localStorage) => movie_localStorage.id == movie.id);
+  if (indexMovie == 0 || indexMovie > 0) {
+    verifyBtnFavorite(btnMovie, starBtnMovie);
+  }
+
+  btnMovie.addEventListener('click', function () {
+    let movies = localStorage.getItem('movies') ? JSON.parse(localStorage.getItem('movies')) : [];
+    let indexMovie = movies.findIndex((movie_localStorage) => movie_localStorage.id == movie.id);
+    if (indexMovie == 0 || indexMovie > 0) {
+      movies.splice(indexMovie, 1)
+      localStorage.setItem('movies', JSON.stringify(movies));
+      toogleBtnFavorite(btnMovie, starBtnMovie);
+
+    } else {
+      movies.push(movie);
+      localStorage.setItem('movies', JSON.stringify(movies));
+      toogleBtnFavorite(btnMovie, starBtnMovie);
+
+    }
+  })
+}
+
+function hidrateMovieDetails(movie) {
+  getCharacters(movie)
+  getLocations(movie);
+  saveMovie(movie);
+}
+
+function verifyBtnFavorite(btn, star) {
+  btn.classList.add('bg-[#edf9a4]')
+  star.classList.add('fill-[#b548dd]');
+}
+
+function toogleBtnFavorite(btn, star) {
+  btn.classList.toggle('bg-[#edf9a4]');
+  star.classList.toggle('fill-[#b548dd]');
+}

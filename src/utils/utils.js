@@ -65,7 +65,7 @@ export function loadMovies() {
     .then((response) => response.json())
     .then((movies) =>
       movies.forEach((movie) => {
-        const cardMovie = Card({ movie });
+        const cardMovie = Card(movie);
         wrapperCard.append(cardMovie);
       }),
     )
