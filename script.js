@@ -1,5 +1,5 @@
 // import { Card } from "./src/assets/components/Card.js";
-import { $, $$ } from "./src/utils/utils.js";
+import { $, $$, navigateTo } from "./src/utils/utils.js";
 import { showMoviesPage } from "./src/assets/views/movies.js";
 
 showMoviesPage();
@@ -7,17 +7,10 @@ showMoviesPage();
 $$('a').forEach((el) => el.addEventListener('click', function (e) {
   e.preventDefault();
   let href = e.currentTarget.getAttribute('href');
-  // let href = target.getAttribute('href');
-  switch (href) {
-    case '/':
-      showMoviesPage();
-      break;
-    // case '/characters':
-    // case '/locations':
-    // case '/favorites':
-  }
+  navigateTo(href)
 }))
+// let href = target.getAttribute('href');
 
-// TODO: Hidratar el boton y insertar confetti
-// TODO: Hacer el localStorage, guardar en favoritos
+// TODO: Characters view / Locations View / Favorites View
+// TODO: Agregar funciones a Favorites View
 // TODO: Hacer un popstate + pushState state

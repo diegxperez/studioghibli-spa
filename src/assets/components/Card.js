@@ -21,7 +21,7 @@ function hidrateCardsMovie(card, movie) {
   card.querySelector('a').addEventListener('click', (e) => {
     e.preventDefault();
 
-    const movieId = e.currentTarget.getAttribute('href');
+    // const movieId = e.currentTarget.getAttribute('href');
     showMovieDetails(movie);
     document.title += ` - ${movie.title}`;
     window.history.pushState({ data: movie }, null, `/movie/${movie.id}`);

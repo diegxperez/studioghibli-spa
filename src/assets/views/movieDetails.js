@@ -98,7 +98,6 @@ function hidrateMovieDetails(movie) {
 }
 
 function toogleBtnFavorite(btn, star) {
-  console.log(btn, star);
   btn.classList.toggle('select_btn');
   star.classList.toggle('star_btn');
 }
