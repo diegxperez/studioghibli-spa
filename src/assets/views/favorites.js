@@ -1,12 +1,12 @@
-import { loadFavoritesMovies } from "../../utils/utils.js";
+import { hidrateBtnBack, loadFavoritesMovies } from "../../utils/utils.js";
 
 export function showFavoritesPage() {
-  root.innerHTML = `<div id='btn-back' class="flex items-center mb-8 gap-x-2 pointer">
+  root.innerHTML = `<div id='btn-back' class="flex items-center mb-8 gap-x-2 cursor-pointer">
   <img class="rotate-180 size-12" src="/src/assets/img/arrow-right.svg" alt="arrow right">
   <h2 class="text-[40px]">Favorites</h2></div>
   <div id="wrapper-cards" class="ml-8 grid grid-cols-4 gap-x-8 gap-y-6 mr-12">`
 
-
+  hidrateBtnBack();
   loadFavoritesMovies();
-  history.pushState({ page: 'favorites' }, null, '/favorites')
+  history.pushState({ page: '/favorites' }, null, '/favorites')
 }

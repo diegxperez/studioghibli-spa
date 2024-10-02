@@ -1,6 +1,7 @@
 // import { Card } from "./src/assets/components/Card.js";
 import { $, $$, navigateTo } from "./src/utils/utils.js";
 import { showMoviesPage } from "./src/assets/views/movies.js";
+import { showMovieDetails } from "./src/assets/views/movieDetails.js";
 
 showMoviesPage();
 
@@ -9,7 +10,19 @@ $$('a').forEach((el) => el.addEventListener('click', function (e) {
   let href = e.currentTarget.getAttribute('href');
   navigateTo(href)
 }))
-// let href = target.getAttribute('href');
+
+window.addEventListener('popstate', (e) => {
+  e.preventDefault();
+  const previousState = e.state;
+
+  if (previousState) {
+    if (previousState.page) {
+      navigateTo(previousState.page)
+    } else if (previousState.data) {
+      showMovieDetails(previousState.data);
+    }
+  }
+});
 
 // TODO: Characters view / Locations View / Favorites View
 // TODO: Agregar funciones a Favorites View

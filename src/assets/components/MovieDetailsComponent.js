@@ -33,17 +33,17 @@ export function MovieDetailsComponent(movie) {
 
           <div class="flex justify-between mb-6">
             <div class="flex gap-x-1 items-center">
-              <img class="size-4 leading-none" src="./src/assets/img/star.svg" alt="icon star">
+              <img class="size-4 leading-none" src="/src/assets/img/star.svg" alt="icon star">
               <p class="text-lg font-geistMono">${movie.rt_score}</p>
             </div>
 
             <div class="flex gap-x-1 items-center">
-              <img class="size-4 leading-none" src="./img/clock_color.svg" alt="icon clock">
+              <img class="size-4 leading-none" src="/src/assets/img/clock_color.svg" alt="icon clock">
               <p class="text-lg text-graysoft font-geistMono">${movie.running_time} Min</p>
             </div>
 
             <div class="flex gap-x-2 items-center">
-              <img class="size-4 leading-none" src="/img/cake.svg" alt="icon cake">
+              <img class="size-4 leading-none" src="/src/assets/img/cake.svg" alt="icon cake">
               <p class="text-lg text-graysoft font-geistMono">${movie.release_date}</p>
             </div>
           </div>

@@ -30,19 +30,6 @@ export function navigateTo(url) {
   }
 }
 
-// Popstate
-export function popState() {
-  const TITLE = 'Studio Ghibli API';
-  window.addEventListener('popstate', (e) => {
-    switch (window.location.pathname) {
-      case '/':
-        root.innerHTML = moviesUI
-        document.title = TITLE;
-        break;
-    }
-  });
-};
-// Load movies
 export function loadMovies() {
   const URL_MOVIES = "https://ghibliapi.vercel.app/films";
   const wrapperCard = $("#wrapper-cards");
@@ -80,4 +67,20 @@ export function loadInfo(url, wrapper) {
         $(wrapper).appendChild(itemDiv);
       })
     ).catch(err => console.log(`Error : ${err}`));
+}
+
+export function hidrateBtnBack() {
+  $("#btn-back").addEventListener('click', (e) => {
+    let previousState = history.state;
+
+    if (previousState) {
+      if (previousState.page) {
+        navigateTo(previousState.page)
+      } else if (previousState.data) {
+        showMovieDetails(previousState.data);
+      }
+    }
+    console.log($("#btn-back"));
+    history.go(-1);
+  });
 }

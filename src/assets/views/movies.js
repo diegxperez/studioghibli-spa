@@ -6,5 +6,5 @@ export function showMoviesPage() {
   <div id="wrapper-cards" class="ml-8 grid grid-cols-4 gap-x-8 gap-y-6 mr-12">`;
 
   loadMovies();
-  history.pushState({ page: 'home' }, null, '/');
+  history.pushState({ page: '/' }, null, '/');
 }
