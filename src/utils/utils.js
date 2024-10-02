@@ -2,47 +2,33 @@
 export const $ = (el) => document.querySelector(el);
 export const $$ = (el) => document.querySelectorAll(el);
 export const root = $('root');
+
 // Import UI
-// import { moviesUI } from "../assets/views/movies.js";
-import { charactersUI } from "../assets/views/characters.js";
-import { favoritesUI } from "../assets/views/favorites.js";
-import { locationsUI } from "../assets/views/locations.js";
+import { showMoviesPage } from "../assets/views/movies.js";
+import { showCharactersPage } from "../assets/views/characters.js";
+import { showLocationsPage } from "../assets/views/locations.js";
+import { showFavoritesPage } from "../assets/views/favorites.js";
 
 // Import Components
 import { Card } from "../assets/components/Card.js";
 
 // Navigation
-// export function navigateTo(url) {
-//   window.history.pushState(null, null, url);
-
-//   switch (window.location.pathname) {
-//     case "/":
-//       root.innerHTML = moviesUI;
-//       loadMovies();
-//       break;
-//     case "/characters":
-//       if (charactersUI) {
-//         root.innerHTML = charactersUI;
-//       } else {
-//         console.error("charactersUI is not defined");
-//       }
-//       break;
-//     case "/locations":
-//       if (locationsUI) {
-//         root.innerHTML = locationsUI;
-//       } else {
-//         console.error("locationsUI is not defined");
-//       }
-//       break;
-//     case "/favorites":
-//       if (favoritesUI) {
-//         root.innerHTML = favoritesUI;
-//       } else {
-//         console.error("favoritesUI is not defined");
-//       }
-//       break;
-//   }
-// }
+export function navigateTo(url) {
+  switch (url) {
+    case '/':
+      showMoviesPage();
+      break;
+    case '/characters':
+      showCharactersPage();
+      break;
+    case '/locations':
+      showLocationsPage();
+      break;
+    case '/favorites':
+      showFavoritesPage();
+      break;
+  }
+}
 
 // Popstate
 export function popState() {
@@ -70,3 +56,28 @@ export function loadMovies() {
       }),
     )
 };
+
+export function loadFavoritesMovies() {
+  const wrapperCard = $("#wrapper-cards");
+  let movies = JSON.parse(localStorage.getItem('movies')) || false;
+
+  if (movies) {
+    movies.forEach((movie) => {
+      const cardMovie = Card(movie);
+      wrapperCard.append(cardMovie);
+    })
+  }
+}
+
+export function loadInfo(url, wrapper) {
+  fetch(url).
+    then((response) => response.json()).
+    then((data) =>
+      data.forEach(item => {
+        let itemDiv = document.createElement('p');
+        itemDiv.innerText = item.name;
+        itemDiv.className = 'text-lg px-4 hover:bg-[#F0C9C5] transition-all ease-in duration-150';
+        $(wrapper).appendChild(itemDiv);
+      })
+    ).catch(err => console.log(`Error : ${err}`));
+}
