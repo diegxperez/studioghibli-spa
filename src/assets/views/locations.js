@@ -10,5 +10,4 @@ export function showLocationsPage() {
 
   hidrateBtnBack();
   loadInfo('https://ghibliapi.vercel.app/locations', '#name-locations');
-  history.pushState({ page: '/locations' }, null, '/locations')
 }  

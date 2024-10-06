@@ -8,6 +8,7 @@ showMoviesPage();
 $$('a').forEach((el) => el.addEventListener('click', function (e) {
   e.preventDefault();
   let href = e.currentTarget.getAttribute('href');
+  history.pushState({ page: href }, null, href);
   navigateTo(href)
 }))
 
@@ -21,6 +22,8 @@ window.addEventListener('popstate', (e) => {
     } else if (previousState.data) {
       showMovieDetails(previousState.data);
     }
+  } else {
+    navigateTo('/')
   }
 });
 
