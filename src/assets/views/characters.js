@@ -8,5 +8,4 @@ export function showCharactersPage() {
 
   hidrateBtnBack();
   loadInfo('https://ghibliapi.vercel.app/PEOPLE', '#name-cards');
-  history.pushState({ page: '/characters' }, null, '/characters');
 };

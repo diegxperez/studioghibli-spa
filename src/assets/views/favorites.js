@@ -8,5 +8,4 @@ export function showFavoritesPage() {
 
   hidrateBtnBack();
   loadFavoritesMovies();
-  history.pushState({ page: '/favorites' }, null, '/favorites')
 }
